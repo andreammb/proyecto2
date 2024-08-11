@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
-    "build": "cross-env npm run clean && npm run build:server && npm run build:admin",
+    "build": "cross-env npm run clean && npm run build:server && npm run build:admin --deployment",
     "build:server": "cross-env npm run clean && tsc -p tsconfig.server.json",
     "build:admin": "cross-env medusa-admin build --deployment",
     "watch": "cross-env tsc --watch",
@@ -22,7 +22,8 @@
     "seed": "cross-env medusa seed -f ./data/seed.json",
     "start": "cross-env npm run build && medusa start",
     "start:custom": "cross-env npm run build && node --preserve-symlinks --trace-warnings index.js",
-    "dev": "cross-env npm run build:server && medusa develop"
+    "dev": "cross-env npm run build:server && medusa develop",
+    "init:user": "cross-env medusa user -e admin@marketbuy.com -p admin"
   },
   "dependencies": {
     "@medusajs/admin": "^7.1.15",
