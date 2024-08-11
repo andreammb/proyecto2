@@ -25,10 +25,6 @@ const loaders = require("@medusajs/medusa/dist/loaders/index").default
         })
       )
 
-    app.get("/", (req, res) => res.send("Express on Vercel"));
-
-    app.listen(3000, () => console.log("Server ready on port 3000."));
-
     module.exports = app;
       // Handle graceful shutdown
       const gracefulShutDown = () => {
